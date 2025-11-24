@@ -1,163 +1,179 @@
-🔐 Advanced Skrievo Discord Verification Bot
-
-This Discord bot provides a fully automated, secure, and customizable verification system with OAuth2 login, IP protection, logging, and role assignment.
-It is designed for communities that want maximum security, automation, and anti-alt protection, while offering a modern and user-friendly verification process.
-
-✨ Features
-✅ OAuth2-Based Verification
-
-The bot uses Discord OAuth2 to verify users securely. It supports:
-
-Identification (Discord ID, Username)
-
-Email collection (for future web panel features)
-
-Guild Join permissions (optional)
-
-Automatic redirect handling, with or without a proxy
-
-🎨 Customizable Verification Embed
-
-You can fully customize:
-
-Title, description, colors
-
-Images & banners
-
-Author & footer
-
-Buttons (Verify with/without Guild Join, FAQ)
-
-📌 Two Verification Modes
-
-Verify (With Guild Join)
-Allows the bot to automatically re-add users if Discord removes the server.
-
-Verify (No Guild Join)
-For users who prefer not to give Guild Join permissions.
-
-🔍 FAQ System
-
-A built-in FAQ embed answers the most common questions about:
-
-Data usage
-
-Why verification is required
-
-Privacy
-
-IP handling
-
-Account requirements
-
-Data deletion requests
-
-🛡️ Advanced Security Checks
-
-The bot includes multiple layers of protection:
-
-Account Security
-
-Minimum account age check
-
-Kick/ban actions on violation
-
-Guild Blacklist
-
-Prevent users in specific guilds from joining
-
-Ban actions supported
-
-IP Protection
-
-Includes detection for:
-
-Proxies
-
-TOR
-
-VPNs
-
-Relays
-
-ISP blacklist (optional)
-
-Geolocation
-
-Country blacklist
-
-Auto-ban support
-
-Discord Account Checks
-
-Verified Discord account requirement
-
-MFA requirement (optional)
-
-🧩 Custom Roles
-
-Add roles upon successful verification
-
-Remove roles during verification
-
-Bypass role for staff
-
-📑 Logging System
-
-Logs are sent to a Discord channel with:
-
-User ID
-
-Username
-
-Action
-
-Reason
-
-Timestamp
-
-Custom colors per action (verify, unverify, kick, ban)
-
-🔧 Proxy & Non-Proxy Support
-
-Works with:
-
-Direct server IPs
-
-Domains with SSL
-
-Reverse proxies
-
-Jumphosts for secure OAuth2 handling
-
-Redirect URLs are generated automatically depending on your configuration.
-
-⚙️ Bot Activity Rotation
-
-The bot supports rotating activities every X seconds:
-
-Watching, Playing, Competing
-
-Custom statuses (online, idle, dnd)
-
-📂 Configuration
-
-All sensitive information is stored in the .env file:
-
+# Advanced Discord Verification Bot
+
+A powerful, customizable, and security-focused Discord verification bot using OAuth2, IP protection, automatic role assignment, and advanced security checks.  
+Designed for communities that require a modern, automated, and secure verification system.
+
+## Features
+
+### OAuth2-Based Verification
+- Secure Discord login
+- Supports identify, email, guilds.join and more
+- Automatic redirect generation (with or without proxy)
+- Optional Guild Join permission for emergency recovery
+
+### Customizable Embed System
+- Fully editable titles, descriptions, colors
+- Custom fields, banners, images
+- Buttons: Verify (Join), Verify (No Join), FAQ
+- Configurable author and footer
+
+### Verification Modes
+1. Verify (With Guild Join)  
+   Allows the bot to re-add users if Discord removes your server.
+
+2. Verify (No Guild Join)  
+   Verifies users without giving the bot guild joining permissions.
+
+### Built-In FAQ System
+Provides answers related to:
+- Why verification is required
+- What data is collected
+- Privacy and security
+- IP hashing
+- Data removal
+- Guild join permissions
+
+### Security Layer
+Includes multiple verification protection systems:
+
+#### Account Security
+- Minimum account age check  
+- Ban, kick, or none
+
+#### Guild Blacklist
+- Blocks users from specified guilds  
+- Auto-ban support
+
+#### IP Protection
+Detects:
+- VPN
+- Proxy
+- TOR
+- Relays
+- ISP blacklist (optional)
+
+#### Geolocation
+- Country blacklist  
+- Auto-ban
+
+#### Discord Account Security
+- User must be Discord-verified
+- MFA optional
+
+### Role Controls
+- Add roles on verification
+- Remove roles on verification
+- Staff bypass roles
+
+### Logging System
+Logs verification attempts and security actions:
+- User ID  
+- Username  
+- Action  
+- Reason  
+- Timestamp  
+- Color-coded log types (verify, unverify, kick, ban)
+
+### Bot Activity Rotation
+- Custom statuses
+- Rotation interval
+- Watching, Playing, Competing supported
+
+## Installation
+
+### 1. Clone the Repository
+git clone https://github.com/your/repo.git
+cd repo
+
+### 2. Install Dependencies
+npm install
+
+### 3. Create .env File
+Create a file named .env and insert:
 TOKEN=YOUR_BOT_TOKEN
 CLIENT_SECRET=YOUR_DISCORD_CLIENT_SECRET
 
+### 4. Configure the Bot
+Edit the config.js file to adjust:
+- Server IP/domain  
+- Port  
+- Proxy settings  
+- OAuth2 client ID  
+- Roles  
+- Embeds  
+- Security settings  
+- Logging
 
-Everything else is customizable inside config.js.
+### 5. Start the Bot
+npm start
 
-🚀 Perfect For
+## Proxy / Reverse Proxy Support
 
-Secure communities
+The bot automatically generates the correct OAuth2 redirect URL based on:
+- IP or domain
+- HTTPS or HTTP
+- Proxy enabled or disabled
 
-Product-based Discord servers
+No manual redirect configuration required.
 
-Verification-required servers
+## Configuration Overview
 
-Anti-alt and anti-spam protection
+Main sections inside config.js:
 
-Semi-automatic or fully-automatic membership systems
+### Bot
+- Token  
+- Avatar and name override  
+- Embed color  
+- Activity rotation
+
+### Server
+- IP or domain  
+- Port  
+- HTTPS  
+- Proxy forwarding  
+- OAuth2 settings
+
+### Verification
+- Embed text  
+- Images  
+- Buttons  
+- FAQ  
+- Roles  
+- Bypass roles
+
+### Security
+- Account age  
+- Guild blacklist  
+- IP checks  
+- Geolocation  
+- Discord verification settings
+
+### Logging
+- Log channel  
+- Log colors  
+- Log embed design
+
+## Data Privacy
+
+This bot does not share or sell any data.  
+All IP addresses are hashed and anonymized.
+
+Collected information:
+- Discord email  
+- Hashed IP  
+- Country and region  
+- User guilds  
+
+Used only for:
+- Security  
+- Fraud protection  
+- Product ownership (if combined with panels)
+
+## Contributing
+
+Pull requests are welcome.  
+Improvements, new features, and extended security layers are appreciated.
+
+## License
+
+Add your preferred license (MIT recommended).
